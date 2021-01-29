@@ -1,0 +1,80 @@
+.main {
+    padding: 2%;
+}
+
+.Employeeform {
+    display: flex;
+    float: left;
+    width: 30%;
+    background-color: orange;
+    border: black;
+}
+
+.sub {
+    display: inline-block;
+    margin: 2%;
+}
+
+.res {
+    display: inline-block;
+    margin: 2%;
+}
+
+.personTable {
+    display: flex;
+    float: left;
+    width: 70%;
+    background-color: palegreen;
+}
+
+.divTable {
+    width: 100%;
+    display: table;
+    padding: 1%;
+}
+
+.headRow {
+    width: auto;
+    display: table-header-group;
+}
+
+.divHeadCell {
+    float: left;
+    display: table-column;
+    width: 200px;
+    height: 30px;
+    background-color: paleturquoise;
+}
+
+.divRow {
+    display: table-row;
+    padding: 1%;
+}
+
+.divCell {
+    float: left;
+    display: table-column;
+    width: 200px;
+    height: 30px;
+}
+
+.wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+}
+
+#update {
+    margin: 1%;
+}
+
+#delete {
+    margin: 1%;
+}
+
+.form-control.ng-touched.ng-invalid {
+    border: 2px solid red;
+}

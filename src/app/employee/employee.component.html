@@ -1,0 +1,87 @@
+<div class="main">
+
+    <div class="Employeeform">
+        <form ngForm (ngSubmit)="submit(f)" #f="ngForm">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="this.employeeService.selectedEmployee==undefined?this.employeeService.atFirst._id:this.employeeService.selectedEmployee._id">
+
+            <div class="form-group">
+                <label for="Name ">Name:</label>
+                <input ngModel required minlength="3" maxlength="15" #name="ngModel" type="text " id="Name" name="name" [(ngModel)]="this.employeeService.selectedEmployee==undefined?this.employeeService.atFirst.name:this.employeeService.selectedEmployee.name" class="form-control"
+                    (change)="log(name)">
+                <div class="alert alert-danger " *ngIf="name.touched && !name.valid ">
+                    <div *ngIf="name.errors.required ">name should be valid</div>
+                    <div *ngIf="name.errors.minlength ">minimumm length should be 3</div>
+                    <div *ngIf="name.errors.maxlength ">maximmum length to be 15</div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <label for="position ">position:</label>
+                <input ngModel required minlength="2 " maxlength="15 " #position="ngModel" type="text " id="position " name="position" [(ngModel)]="this.employeeService.selectedEmployee==undefined?this.employeeService.atFirst.position:this.employeeService.selectedEmployee.position"
+                    class="form-control ">
+                <div class="alert alert-danger " *ngIf="position.touched && !position.valid ">
+
+                    <div *ngIf="position.errors.required ">currentPosition should be valid</div>
+                    <div *ngIf="position.errors.minlength ">minimumm length should be 2</div>
+                    <div *ngIf="position.errors.maxlength ">maximmum length to be 15</div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <label for="company ">company</label>
+                <input ngModel required minlength="2 " maxlength="15 " #company="ngModel" type="text " id="company " name="company" class="form-control" [(ngModel)]="this.employeeService.selectedEmployee==undefined?this.employeeService.atFirst.company:this.employeeService.selectedEmployee.company">
+                <div class="alert alert-danger " *ngIf="company.touched && !company.valid ">
+
+                    <div *ngIf="company.errors.required ">currentCompany should be valid</div>
+                    <div *ngIf="company.errors.minlength ">minimumm length should be 2</div>
+                    <div *ngIf="company.errors.maxlength ">maximmum length to be 15</div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <label for="salary">salary</label>
+                <input ngModel required minlength="2 " maxlength="15 " #salary="ngModel" type="text " id="salary" name="salary" class="form-control ">
+                <div class="alert alert-danger " *ngIf="salary.touched && !salary.valid ">
+
+                    <div *ngIf="salary.errors.required ">currentCompany should be valid</div>
+                    <div *ngIf="salary.errors.minlength ">minimumm length should be 2</div>
+                    <div *ngIf="salary.errors.maxlength ">maximmum length to be 15</div>
+                </div>
+            </div>
+
+            <div class="sub">
+                <button type="submit" class="btn btn-primary" id="submit">submit</button>
+            </div>
+
+            <div class="res">
+                <button type="button" (click)="resetForm(f)">Reset</button>
+            </div>
+
+            <!-- <div class="wrapper ">
+                
+                <button type="update " class="btn btn-primary " id="update ">update</button>
+            </div> -->
+        </form>
+    </div>
+
+    <div class="personTable">
+        <div class="divTable" id="table ">
+            <div class="headRow ">
+                <div class="divHeadCell">Name</div>
+                <div class="divHeadCell">Company</div>
+                <div class="divHeadCell">position</div>
+                <div class="divHeadCell"> options </div>
+            </div>
+
+            <div class="tableRow" *ngFor="let emp of employeeService.employees">
+                <div class="divCell">{{emp.name}}</div>
+                <div class="divCell">{{emp.company}}</div>
+                <div class="divCell">{{emp.position}}</div>
+                <div class="divCell">
+                    <button type="delete" id="delete" (click)="delete(emp)">delete</button>
+                    <button type="button" id="update" (click)="update(emp)">update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
